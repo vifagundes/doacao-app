@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Doação App
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/institution-register" fill="clear" color="light" class="register-btn">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        Cadastrar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <h2>Instituições que precisam da sua ajuda</h2>
+    <p>Escolha uma instituição para fazer sua doação e espalhar esperança</p>
+  </div>
+
+  <!-- Lista de instituições -->
+  <ion-list *ngIf="institutions.length > 0">
+    <ion-item *ngFor="let institution of institutions" [routerLink]="['/institution-detail', institution.id]" detail="true">
+      <ion-label>
+        <h2>{{ institution.name }}</h2>
+        <p>{{ institution.description }}</p>
+        <ion-note color="medium">Necessidades: {{ institution.needs }}</ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Card para quando não há instituições -->
+  <div class="register-card ion-margin" *ngIf="institutions.length === 0">
+    <h3>Nenhuma instituição cadastrada</h3>
+    <p>Que tal cadastrar uma instituição para começar a ajudar?</p>
+    <ion-button expand="block" fill="solid" color="success" routerLink="/institution-register">
+      <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+      Cadastrar Instituição
+    </ion-button>
+  </div>
+
+  <!-- Card para adicionar mais instituições (após a lista) -->
+  <div class="register-card ion-margin" *ngIf="institutions.length > 0">
+    <h3>Conhece outra instituição que precisa de ajuda?</h3>
+    <p>Contribua para nossa rede de solidariedade!</p>
+    <ion-button expand="block" fill="outline" color="success" routerLink="/institution-register">
+      <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+      Cadastrar Nova Instituição
+    </ion-button>
+  </div>
+</ion-content>

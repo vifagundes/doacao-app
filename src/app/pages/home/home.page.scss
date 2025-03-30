@@ -1,0 +1,48 @@
+ion-content {
+  --background: #f8fbf8; // Um tom verde muito suave para o fundo
+}
+
+h2 {
+  color: var(--ion-color-success);
+  font-weight: 600;
+}
+
+ion-item {
+  --background: rgba(197, 225, 165, 0.1); // Fundo ligeiramente verde para os itens
+  margin-bottom: 8px;
+  border-radius: 8px;
+  
+  &:hover {
+    --background: rgba(197, 225, 165, 0.3); // Destaque ao passar o mouse
+  }
+}
+
+.register-btn {
+  font-size: 14px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+.register-card {
+  background-color: rgba(102, 187, 106, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  border-left: 4px solid var(--ion-color-success);
+  
+  h3 {
+    color: var(--ion-color-success);
+    margin-top: 0;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 16px;
+  }
+  
+  ion-button {
+    margin-top: 8px;
+  }
+}

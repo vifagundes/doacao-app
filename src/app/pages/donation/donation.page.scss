@@ -1,0 +1,18 @@
+ion-content {
+  --background: #f8fbf8;
+}
+
+ion-card {
+  background-color: rgba(102, 187, 106, 0.1);
+  border-left: 4px solid var(--ion-color-primary);
+}
+
+ion-button[color="success"] {
+  --background: var(--ion-color-success);
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.ion-padding {
+  padding-bottom: 20px;
+}

@@ -1,0 +1,34 @@
+ion-content {
+  --background: #f8fbf8;
+}
+
+ion-card {
+  background-color: rgba(102, 187, 106, 0.1);
+  border-radius: 12px;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.1);
+}
+
+ion-card-title {
+  color: var(--ion-color-success);
+}
+
+ion-button[color="success"] {
+  --background: var(--ion-color-success);
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-list-header {
+  color: var(--ion-color-success);
+  font-weight: 600;
+  font-size: 18px;
+}

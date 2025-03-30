@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ institution?.name || 'Detalhes da Instituição' }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="institution">
+    <ion-card-header>
+      <ion-card-subtitle>CNPJ: {{ institution.cnpj }}</ion-card-subtitle>
+      <ion-card-title>{{ institution.name }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <p>{{ institution.description }}</p>
+      
+      <ion-item lines="none">
+        <ion-icon name="list-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Necessidades</h3>
+          <p>{{ institution.needs }}</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Contato</h3>
+          <p>{{ institution.contact.phone }}</p>
+          <p>{{ institution.contact.email }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="ion-padding">
+    <ion-button expand="block" color="success" [routerLink]="['/donation', institution?.id]">
+      Fazer Doação
+      <ion-icon slot="end" name="heart-outline"></ion-icon>
+    </ion-button>
+  </div>
+  
+  <ion-list *ngIf="recentDonations.length > 0">
+    <ion-list-header>
+      <ion-label>Doações Recentes</ion-label>
+    </ion-list-header>
+    
+    <ion-item *ngFor="let donation of recentDonations">
+      <ion-label>
+        <h2>{{ donation.donorName || 'Anônimo' }}</h2>
+        <p>R$ {{ formatAmount(donation.amount) }}</p>
+        <ion-note color="medium">{{ donation.createdAt | date:'dd/MM/yyyy' }}</ion-note>
+      </ion-label>
+      <ion-badge slot="end" [color]="donation.status === 'completed' ? 'success' : 'warning'">
+        {{ donation.status === 'completed' ? 'Concluída' : 'Pendente' }}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>

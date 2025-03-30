@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Fazer Doação
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="institution">
+    <ion-card-header>
+      <ion-card-subtitle>Instituição</ion-card-subtitle>
+      <ion-card-title>{{ institution.name }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  
+  <form (ngSubmit)="makeDonation()">
+    <ion-list class="ion-padding">
+      <ion-item>
+        <ion-label position="floating">Valor da Doação (R$)*</ion-label>
+        <ion-input 
+          required 
+          [(ngModel)]="donation.amount" 
+          name="amount" 
+          min="1"
+          mask="separator.2"
+          prefix="R$ "
+          thousandSeparator="."
+          decimalMarker=","
+          placeholder="R$ 0,00">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Seu Nome (opcional)</ion-label>
+        <ion-input [(ngModel)]="donation.donorName" name="donorName"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Seu E-mail (opcional)</ion-label>
+        <ion-input 
+          type="email" 
+          [(ngModel)]="donation.donorEmail" 
+          name="donorEmail"
+          placeholder="seu.email@exemplo.com">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Mensagem (opcional)</ion-label>
+        <ion-textarea rows="3" [(ngModel)]="donation.message" name="message"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" color="success">
+        Concluir Doação
+        <ion-icon slot="end" name="leaf"></ion-icon>
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

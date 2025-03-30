@@ -1,0 +1,33 @@
+ion-content {
+  --background: #f8fbf8;
+}
+
+ion-card {
+  background-color: rgba(102, 187, 106, 0.1);
+  border-radius: 12px;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.1);
+}
+
+.thank-you-container {
+  background: linear-gradient(to bottom, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.05));
+  padding: 20px;
+  border-radius: 12px;
+  margin: 16px;
+  text-align: center;
+}
+
+.thank-you-container h2 {
+  color: var(--ion-color-success);
+  font-weight: 600;
+}
+
+.thank-you-container p {
+  color: #4a4a4a;
+}
+
+.success-icon {
+  font-size: 72px;
+  color: var(--ion-color-success);
+  margin-bottom: 16px;
+}
