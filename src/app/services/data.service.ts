@@ -12,7 +12,6 @@ export class DataService {
   private donations = new BehaviorSubject<Donation[]>([]);
 
   constructor() {
-    // Remover todos os dados existentes (opcional - remova depois se quiser manter os dados)
     localStorage.removeItem('institutions');
     localStorage.removeItem('donations');
     
@@ -23,26 +22,26 @@ export class DataService {
     const storedInstitutions = localStorage.getItem('institutions');
     if (storedInstitutions) {
       const institutions = JSON.parse(storedInstitutions);
-      // Converter strings de data para objetos Date
+
       institutions.forEach((inst: Institution) => {
         inst.createdAt = new Date(inst.createdAt);
       });
       this.institutions.next(institutions);
     } else {
-      // Inicializa com um array vazio em vez de adicionar exemplos
+
       this.institutions.next([]);
     }
 
     const storedDonations = localStorage.getItem('donations');
     if (storedDonations) {
       const donations = JSON.parse(storedDonations);
-      // Converter strings de data para objetos Date
+
       donations.forEach((donation: Donation) => {
         donation.createdAt = new Date(donation.createdAt);
       });
       this.donations.next(donations);
     } else {
-      // Inicializa com um array vazio
+
       this.donations.next([]);
     }
   }
@@ -52,7 +51,6 @@ export class DataService {
     localStorage.setItem('donations', JSON.stringify(this.donations.value));
   }
 
-  // Instituições
   getInstitutions(): Observable<Institution[]> {
     return this.institutions.asObservable();
   }
@@ -87,7 +85,6 @@ export class DataService {
     this.saveToStorage();
   }
 
-  // Doações
   getDonations(): Observable<Donation[]> {
     return this.donations.asObservable();
   }
@@ -101,9 +98,8 @@ export class DataService {
       donation.id = uuidv4();
     }
     
-    // Garantir que amount seja um número
     if (typeof donation.amount === 'string') {
-      // Remove qualquer formatação de moeda e converte para número
+      
       const cleanValue = donation.amount
         .replace(/R\$\s*/g, '')
         .replace(/\./g, '')
@@ -125,7 +121,6 @@ export class DataService {
     this.donations.next(updated);
     this.saveToStorage();
     
-    // Simular processamento de pagamento após 2 segundos
     setTimeout(() => {
       this.processPayment(donation.id);
     }, 2000);

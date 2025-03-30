@@ -1,5 +1,5 @@
 ion-content {
-  --background: #f8fbf8; // Um tom verde muito suave para o fundo
+  --background: #f8fbf8; 
 }
 
 h2 {
@@ -8,12 +8,12 @@ h2 {
 }
 
 ion-item {
-  --background: rgba(197, 225, 165, 0.1); // Fundo ligeiramente verde para os itens
+  --background: rgba(197, 225, 165, 0.1); 
   margin-bottom: 8px;
   border-radius: 8px;
   
   &:hover {
-    --background: rgba(197, 225, 165, 0.3); // Destaque ao passar o mouse
+    --background: rgba(197, 225, 165, 0.3); 
   }
 }
 

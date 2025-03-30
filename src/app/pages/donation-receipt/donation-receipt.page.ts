@@ -65,19 +65,18 @@ export class DonationReceiptPage implements OnInit {
     if (typeof amount === 'number') {
       return amount.toFixed(2).replace('.', ',');
     } else if (typeof amount === 'string') {
-      // Se já for uma string, pode ser que já esteja formatada ou precise de conversão
+      
       if (amount.includes('R$')) {
         return amount.replace('R$', '').trim();
       }
       
-      // Tenta converter para número e depois formatar
+      
       const numberValue = parseFloat(amount.replace(',', '.'));
       if (!isNaN(numberValue)) {
         return numberValue.toFixed(2).replace('.', ',');
       }
     }
     
-    // Fallback para caso de valores inválidos
     return '0,00';
   }
 }

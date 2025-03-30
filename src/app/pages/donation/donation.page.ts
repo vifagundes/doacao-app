@@ -87,11 +87,11 @@ export class DonationPage implements OnInit {
   }
   
   validateForm(): boolean {
-    // Se usar a máscara de moeda, precisamos converter o valor formatado
+    
     let amountValue = this.donation.amount;
     
     if (typeof amountValue === 'string') {
-      // Remove R$, espaços e converte vírgula para ponto
+      
       const cleanedValue = amountValue
         .replace('R$', '')
         .replace(/\s/g, '')

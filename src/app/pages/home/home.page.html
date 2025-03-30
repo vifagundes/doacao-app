@@ -15,10 +15,9 @@
 <ion-content [fullscreen]="true">
   <div class="ion-padding">
     <h2>Instituições que precisam da sua ajuda</h2>
-    <p>Escolha uma instituição para fazer sua doação e espalhar esperança</p>
+    <p>Escolha uma instituição para fazer sua doação</p>
   </div>
 
-  <!-- Lista de instituições -->
   <ion-list *ngIf="institutions.length > 0">
     <ion-item *ngFor="let institution of institutions" [routerLink]="['/institution-detail', institution.id]" detail="true">
       <ion-label>
@@ -29,7 +28,6 @@
     </ion-item>
   </ion-list>
 
-  <!-- Card para quando não há instituições -->
   <div class="register-card ion-margin" *ngIf="institutions.length === 0">
     <h3>Nenhuma instituição cadastrada</h3>
     <p>Que tal cadastrar uma instituição para começar a ajudar?</p>
@@ -39,7 +37,6 @@
     </ion-button>
   </div>
 
-  <!-- Card para adicionar mais instituições (após a lista) -->
   <div class="register-card ion-margin" *ngIf="institutions.length > 0">
     <h3>Conhece outra instituição que precisa de ajuda?</h3>
     <p>Contribua para nossa rede de solidariedade!</p>

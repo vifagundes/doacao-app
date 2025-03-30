@@ -2,7 +2,7 @@ export interface Donation {
   id: string;
   institutionId: string;
   institutionName: string;
-  amount: number | string; // Permitir string ou número para lidar com a formatação
+  amount: number | string;
   donorName?: string;
   donorEmail?: string;
   message?: string;
